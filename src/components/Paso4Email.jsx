@@ -23,21 +23,18 @@ const Paso4Email = ({ cotizacion, rangoPrecio, siguientePaso, atrasPaso, iniciar
 
     const datosFinales = {
       ...cotizacion,
+      email: email,
       rangoMin: rangoPrecio.min,
       rangoMax: rangoPrecio.max,
     };
 
     try {
-      // Llamada a la Serverless Function de Vercel
       await axios.post('/api/cotizacion', datosFinales);
       
-      // Éxito: Guardar email y mostrar el resultado final
       siguientePaso({ email });
       iniciarCotizacion(); 
 
     } catch (error) {
-      console.error('Error al enviar el lead al backend:', error);
-      // Mantenemos la UX si el backend falla.
       siguientePaso({ email });
       iniciarCotizacion(); 
       alert("Advertencia: No se pudo registrar tu lead, pero puedes ver tu cotización.");
