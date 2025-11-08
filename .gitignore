@@ -1,0 +1,16 @@
+# /frontend/.gitignore
+
+# Dependencias de Node (Principal y API)
+/node_modules
+/api/node_modules 
+
+# Archivos de build y temporales
+/dist
+/.vite/
+
+# Archivos de Vercel (deploy)
+.vercel/
+
+# Variables de entorno localgit add .
+.env
+.env.local
