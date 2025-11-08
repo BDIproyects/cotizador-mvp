@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
   // 1. Definición del Contenido del Email
   const msg = {
     to: email, 
-    from: 'ros19ed@gmail.com', // ⬅️ ¡TU EMAIL VERIFICADO!
+    from: 'rosecasas1606@gmail.com',
     subject: `✅ Tu Cotización Rápida ha sido calculada (${metrosCuadrados} m²)`,
     html: `
         <h2>¡Hola! Aquí está tu presupuesto rápido de ${metrosCuadrados} m².</h2>
@@ -50,10 +50,8 @@ module.exports = async (req, res) => {
   };
 
   try {
-    // 2. Envío del Email
     await sgMail.send(msg);
 
-    // 3. Registro del Lead en Logs (para tu seguimiento en Vercel)
     console.log('--------------------------------------------------');
     console.log(`✅ LEAD CAPTURADO Y EMAIL ENVIADO a: ${email}`);
     console.log('--------------------------------------------------');
@@ -66,7 +64,6 @@ module.exports = async (req, res) => {
   } catch (error) {
     console.error('⚠️ Error al enviar el email con SendGrid:', error.message);
     
-    // Devolvemos 200 (éxito) al frontend para mostrar la pantalla final, aunque el email falle.
     res.status(200).send({ 
       success: true, 
       message: 'Lead capturado, pero hubo un error con el envío del email.'

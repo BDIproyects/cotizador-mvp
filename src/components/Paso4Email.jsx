@@ -58,7 +58,7 @@ const Paso4Email = ({ cotizacion, rangoPrecio, siguientePaso, atrasPaso, iniciar
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="ros19ed@gmail.com"
+          placeholder="ejemplo@gmail.com"
           required
           className="input-field email-field"
         />
